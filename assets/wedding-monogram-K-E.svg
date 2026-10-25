@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">K&amp;Е wedding monogram</title>
+  <desc id="desc">Minimalist wedding monogram with the initials K and Е, framed by delicate circular arcs and botanical leaves.</desc>
+  <defs>
+    <style>
+      .ink { fill: #373835; }
+      .line { fill: none; stroke: #373835; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <g class="line">
+    <path d="M105 184 A174 174 0 0 1 371 104"/>
+    <path d="M407 330 A174 174 0 0 1 169 418"/>
+    <path d="M106 282 A174 174 0 0 0 124 348"/>
+  </g>
+  <g class="ink">
+    <text x="135" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="400">K</text>
+    <text x="255" y="328" font-family="Georgia, 'Times New Roman', serif" font-size="116" font-weight="400" font-style="italic">&amp;</text>
+    <text x="302" y="355" font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="400">Е</text>
+  </g>
+  <g class="line">
+    <path d="M368 106 C391 132 404 160 410 191"/>
+    <path d="M393 136 C373 126 358 116 350 101 C371 105 386 117 393 136Z" fill="#373835" stroke="none"/>
+    <path d="M402 157 C418 140 424 124 420 107 C405 120 399 138 402 157Z" fill="#373835" stroke="none"/>
+    <path d="M408 181 C428 170 439 155 440 139 C423 148 412 163 408 181Z" fill="#373835" stroke="none"/>
+    <path d="M113 331 C124 355 141 374 166 389"/>
+    <path d="M127 353 C111 345 100 333 96 318 C112 324 123 336 127 353Z" fill="#373835" stroke="none"/>
+    <path d="M143 370 C145 390 154 404 169 412 C169 394 159 379 143 370Z" fill="#373835" stroke="none"/>
+    <path d="M158 381 C179 380 194 386 205 399 C185 402 169 395 158 381Z" fill="#373835" stroke="none"/>
+  </g>
+</svg>
