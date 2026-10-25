@@ -5,7 +5,7 @@
   --muted: #77716a;
   --line: #d9d1c6;
   --wine: #743b46;
-  --greige: #bdb5a6;
+  --gray: #cbcbcb;
   --charcoal: #373835;
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
@@ -118,7 +118,7 @@ h2 em { color: var(--wine); font-weight: 400; }
 .swatch strong { font-size: 11px; font-weight: 600; writing-mode: vertical-rl; transform: rotate(180deg); align-self: flex-start; }
 .swatch small { font-size: 8px; letter-spacing: .03em; }
 .swatch-cream { background: #f3ede2; border: 1px solid #e1d9cd; }
-.swatch-greige { background: #bdb5a6; }
+.swatch-gray { background: #cbcbcb; }
 .swatch-charcoal { background: #373835; color: #f6f3ed; }
 .swatch-wine { background: #743b46; color: #f6f3ed; }
 .palette-section > .fine-print { grid-column: 2; margin-top: -30px; }
@@ -402,7 +402,7 @@ html[dir="rtl"] .next-day-card { margin-left: 0; margin-right: 118px; }
   color: var(--paper);
 }
 .invitation-note-mark {
-  color: var(--greige);
+  color: var(--gray);
   font-family: var(--serif);
   font-size: clamp(43px, 5.4vw, 68px);
   line-height: .95;
