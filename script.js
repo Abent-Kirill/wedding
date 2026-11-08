@@ -16,9 +16,6 @@ const WEDDING_CONFIG = {
 };
 
 const CONTACT_CONFIG = {
-  // Use international format, e.g. "+14155552671". Keep empty until you are ready to publish a number.
-  groomPhone: "+79887344194",
-  bridePhone: "+790000004194",
   // Optional messenger link, e.g. "https://t.me/username".
   messengerUrl: "",
   messengerLabel: "@USERNAME"
@@ -130,6 +127,37 @@ const TRANSLATIONS = {
     "footer.tagline": "באהבה ומחכים כבר לראותכם.", "footer.family": "אבנט-סמירנוב · 2027"
   }
 };
+
+Object.assign(TRANSLATIONS.ru, {
+  "calendar.nextDayDescription": "Отдых дома, шашлыки, бассейн и баня.",
+  "day.nextDayBody": "Отдых дома, шашлыки, бассейн и баня.",
+  "locations.receptionNote": "Банкет начинается в 16:00.",
+  "palette.aria": "Цветовая палитра: серый, угольный матовый и бордовый",
+  "invitation.rsvpKicker": "ПОДТВЕРЖДЕНИЕ УЧАСТИЯ",
+  "invitation.rsvpTitle": "Пожалуйста, подтвердите участие",
+  "invitation.rsvpBody": "Пожалуйста, сообщите нам за два месяца до свадьбы, сможете ли вы прийти и в каком составе.",
+  "contacts.unconfigured": "Добавьте ссылку на мессенджер в CONTACT_CONFIG в файле script.js."
+});
+Object.assign(TRANSLATIONS.en, {
+  "calendar.nextDayDescription": "A relaxed day at home with barbecue, a swimming pool, and a sauna.",
+  "day.nextDayBody": "A relaxed day at home with barbecue, a swimming pool, and a sauna.",
+  "locations.receptionNote": "The reception begins at 4:00 PM.",
+  "palette.aria": "Wedding colour palette: grey, matte charcoal, and burgundy",
+  "invitation.rsvpKicker": "PLEASE RSVP",
+  "invitation.rsvpTitle": "Please confirm your attendance",
+  "invitation.rsvpBody": "Please let us know two months before the wedding whether you can attend and how many people will be in your party.",
+  "contacts.unconfigured": "Add a messenger link in CONTACT_CONFIG in script.js."
+});
+Object.assign(TRANSLATIONS.he, {
+  "calendar.nextDayDescription": "יום רגוע בבית עם על האש, בריכה וסאונה.",
+  "day.nextDayBody": "יום רגוע בבית עם על האש, בריכה וסאונה.",
+  "locations.receptionNote": "הסעודה מתחילה בשעה 16:00.",
+  "palette.aria": "פלטת צבעים לחתונה: אפור, פחם מט ובורדו",
+  "invitation.rsvpKicker": "אישור הגעה",
+  "invitation.rsvpTitle": "אנא אשרו את הגעתכם",
+  "invitation.rsvpBody": "אנא עדכנו אותנו חודשיים לפני החתונה אם תוכלו להגיע וכמה אנשים יהיו בקבוצה שלכם.",
+  "contacts.unconfigured": "הוסיפו קישור לאפליקציית הודעות ב-CONTACT_CONFIG שבקובץ script.js."
+});
 
 const LANGUAGE_LOCALES = { ru: "ru-RU", en: "en-US", he: "he-IL" };
 let currentLanguage = "ru";
@@ -287,41 +315,21 @@ function downloadCalendarEvent() {
   if (status) status.textContent = getText("date.downloaded");
 }
 
-function sanitizePhone(value) {
-  const cleaned = String(value || "").replace(/[^\d+]/g, "");
-  return /^\+\d{7,15}$/.test(cleaned) ? cleaned : "";
-}
-
 function updateContactLinks() {
   document.querySelectorAll("[data-contact]").forEach((link) => {
-    const key = link.dataset.contact;
     const valueElement = link.querySelector("[data-contact-value]");
-    const value = CONTACT_CONFIG[key] || "";
-    if (key.endsWith("Phone")) {
-      const phone = sanitizePhone(value);
-      if (phone) {
-        link.href = `tel:${phone}`;
-        link.classList.remove("is-unconfigured");
-        if (valueElement) valueElement.textContent = value.trim();
-      } else {
-        link.href = "#contacts";
-        link.classList.add("is-unconfigured");
-        if (valueElement) valueElement.textContent = getText("contacts.phonePlaceholder");
-      }
-    } else if (key === "messengerUrl") {
-      const url = /^https:\/\//i.test(value) ? value : "";
-      if (url) {
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.classList.remove("is-unconfigured");
-        if (valueElement) valueElement.textContent = CONTACT_CONFIG.messengerLabel || url;
-      } else {
-        link.href = "#contacts";
-        link.removeAttribute("target");
-        link.classList.add("is-unconfigured");
-        if (valueElement) valueElement.textContent = getText("contacts.messengerPlaceholder");
-      }
+    const url = /^https:\/\//i.test(CONTACT_CONFIG.messengerUrl) ? CONTACT_CONFIG.messengerUrl : "";
+    if (url) {
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.classList.remove("is-unconfigured");
+      if (valueElement) valueElement.textContent = CONTACT_CONFIG.messengerLabel || url;
+    } else {
+      link.href = "#contacts";
+      link.removeAttribute("target");
+      link.classList.add("is-unconfigured");
+      if (valueElement) valueElement.textContent = getText("contacts.messengerPlaceholder");
     }
   });
 }
