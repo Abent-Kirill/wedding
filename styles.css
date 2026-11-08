@@ -18,6 +18,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
+.scrolling-roses { position: fixed; inset: 50% 4px auto; z-index: 1; display: flex; justify-content: space-between; height: min(84vh, 760px); transform: translateY(-50%); pointer-events: none; }
+.scrolling-roses img { width: clamp(30px, 4vw, 56px); height: 100%; object-fit: fill; opacity: .7; }
+.scrolling-roses img:last-child { transform: scaleX(-1); }
 ::selection { background: #d5cec1; color: var(--ink); }
 .skip-link { position: absolute; top: -80px; left: 16px; z-index: 100; padding: 10px 14px; background: var(--ink); color: var(--paper); }
 .skip-link:focus { top: 16px; }
@@ -112,7 +115,7 @@ h2 em { color: var(--wine); font-weight: 400; }
 .palette-copy .eyebrow { margin-bottom: 16px; }
 .palette-copy .body-copy { margin: 23px 0 0; }
 .palette-note { margin: 18px 0 0; color: var(--wine); font-size: 11px; line-height: 1.8; }
-.palette-display { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.palette-display { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .swatch { min-height: 230px; padding: 16px 12px; display: flex; flex-direction: column; justify-content: space-between; }
 .swatch > span { font-size: 9px; letter-spacing: .1em; }
 .swatch strong { font-size: 11px; font-weight: 600; writing-mode: vertical-rl; transform: rotate(180deg); align-self: flex-start; }
@@ -120,6 +123,7 @@ h2 em { color: var(--wine); font-weight: 400; }
 .swatch-gray { background: #cbcbcb; }
 .swatch-charcoal { background: #373835; color: #f6f3ed; }
 .swatch-wine { background: #743b46; color: #f6f3ed; }
+.swatch-blue-gray { background: #354f66; color: #f6f3ed; }
 .palette-section > .fine-print { grid-column: 2; margin-top: -30px; }
 
 .program-section { padding-block: clamp(80px, 10vw, 132px); display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(38px, 7vw, 100px); }
@@ -177,6 +181,8 @@ h2 em { color: var(--wine); font-weight: 400; }
 }
 
 @media (max-width: 700px) {
+  .scrolling-roses { inset-inline: 2px; height: 76vh; }
+  .scrolling-roses img { width: 20px; opacity: .45; }
   :root { --gutter: 22px; }
   html { scroll-padding-top: 68px; }
   .site-header { height: 68px; grid-template-columns: 1fr auto auto; gap: 16px; }
