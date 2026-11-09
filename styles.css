@@ -115,15 +115,14 @@ h2 em { color: var(--wine); font-weight: 400; }
 .palette-copy .eyebrow { margin-bottom: 16px; }
 .palette-copy .body-copy { margin: 23px 0 0; }
 .palette-note { margin: 18px 0 0; color: var(--wine); font-size: 11px; line-height: 1.8; }
-.palette-display { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.palette-display { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .swatch { min-height: 230px; padding: 16px 12px; display: flex; flex-direction: column; justify-content: space-between; }
 .swatch > span { font-size: 9px; letter-spacing: .1em; }
 .swatch strong { font-size: 11px; font-weight: 600; writing-mode: vertical-rl; transform: rotate(180deg); align-self: flex-start; }
 .swatch small { font-size: 8px; letter-spacing: .03em; }
-.swatch-gray { background: #cbcbcb; }
-.swatch-charcoal { background: #373835; color: #f6f3ed; }
+.swatch-wine-light { background: #9c5965; color: #f6f3ed; }
 .swatch-wine { background: #743b46; color: #f6f3ed; }
-.swatch-blue-gray { background: #354f66; color: #f6f3ed; }
+.swatch-wine-dark { background: #542833; color: #f6f3ed; }
 .palette-section > .fine-print { grid-column: 2; margin-top: -30px; }
 
 .program-section { padding-block: clamp(80px, 10vw, 132px); display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(38px, 7vw, 100px); }
